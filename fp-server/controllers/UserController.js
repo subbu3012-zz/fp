@@ -1,20 +1,8 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'fpuser',
-	password: 'fpuser',
-	database: 'fpdb',
-	port: '6036'
-});
+const User = require('../models/Users');
+const encrypt = require('../encrypt')
+const decrypt = require('../decrypt')
+const jwt = require('jsonwebtoken')
 
-connection.connect();
-
-connection.query('SELECT * from customers', function (error, results, fields) {
-	if (error) throw error;
-	console.log('The solution is: ', results);
-});
-
-connection.end();
 
 module.exports = {
 
